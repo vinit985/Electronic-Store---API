@@ -6,6 +6,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.context.annotation.Primary;
+
+import java.util.ArrayList;
+import java.util.List;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -22,6 +26,8 @@ public class Category {
     @Column(name = "category_desc" ,length = 100,nullable = false)
     private String description;
     private String coverImage;
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "category")
+    private List<Product> products = new ArrayList<>();
 
 
 }

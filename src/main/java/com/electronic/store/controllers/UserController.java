@@ -50,6 +50,7 @@ public class UserController {
 
     @DeleteMapping("/delete/{userID}")
     public ResponseEntity<APIResponseMessage> deleteUser(@PathVariable("userID") int id) throws IOException {
+
         userService.deleteUser(id);
        APIResponseMessage msg =  APIResponseMessage.builder()
                 .message("User deleted successfully with id :" + id)
